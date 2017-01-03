@@ -33,11 +33,12 @@ parser = argparse.ArgumentParser(description='Este programa vai encontrar e tira
 parser.add_argument('-i','--input', help='Vídeo de entrada', required=True)
 parser.add_argument('-l','--logo', help='Imagem com logo', required=True)
 parser.add_argument('-o','--output', help='Nome do arquivo de saída', required=False)
-parser.add_argument('-q','--highq', help='Ativa o modo 2-pass', action='store_true', default=False)
+parser.add_argument('-q','--highq', help='Ativa o modo 2-pass, com bitrate', required=False)
+parser.add_argument('-1','--lossless', help='Ativa o modo lossless (x264)', action='store_true', default=False)
 
 args = vars(parser.parse_args())
 
-pass2 = args['highq']
+rate = args['highq']
 
 basename = args['input']
 logomarca = args['logo']
@@ -124,8 +125,11 @@ def process_frames(get_frame,t):
 
 out = clip.fl(process_frames)
 
-if pass2:
-  out.write_videofile(outname, codec = "libx265", preset = "medium", ffmpeg_params = [ '-pass', '1', '-b:v', '4000k', '-pix_fmt', 'yuv420p' ], audio_codec = 'libfdk_aac' )  
-  out.write_videofile(outname, codec = "libx265", preset = "medium", ffmpeg_params = [ '-pass', '2', '-b:v', '4000k', '-pix_fmt', 'yuv420p' ], audio_codec = 'libfdk_aac' )  
+if args['lossless']:
+  out.write_videofile(outname, codec = "libx264", preset = "ultrafast", ffmpeg_params = ['-crf', '0' ], audio_codec = 'libfdk_aac' )
+elif args['highq']:
+  out.write_videofile(outname, codec = "libx265", preset = "medium", bitrate = rate, ffmpeg_params = [ '-pass', '1', '-pix_fmt', 'yuv420p' ], audio_codec = 'libfdk_aac' )
+  out.write_videofile(outname, codec = "libx265", preset = "medium", bitrate = rate, ffmpeg_params = [ '-pass', '2', '-pix_fmt', 'yuv420p' ], audio_codec = 'libfdk_aac' )
 else:
-  out.write_videofile(outname, codec = "libx265", preset = "fast", ffmpeg_params = ['-crf', '18', '-pix_fmt', 'yuv420p' ], audio_codec = 'libfdk_aac' )  
+  out.write_videofile(outname, codec = "libx265", preset = "fast", ffmpeg_params = ['-crf', '18', '-pix_fmt', 'yuv420p'], audio_codec = 'libfdk_aac' )
+  
