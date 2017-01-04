@@ -117,10 +117,10 @@ def process_frames(get_frame,t):
       tmax[x],box[x] = match(favg[x].astype(np.uint8),logo,box[x])
     for x in range(maxtsteps):
       tmax[tsteps-1],box[tsteps-1] = match(favg[tsteps-1].astype(np.uint8),logo,box[tsteps-1])
-      if tmax[tsteps-1] > threshold or t+(x+tsteps-2)*tavg > clip.duration:
+      if tmax[tsteps-1] > threshold or t+(x+tsteps-1)*tavg > clip.duration:
         break
       else: 
-        favg[tsteps-1] = average_frame(t+(x+tsteps-2)*tavg,t+(x+tsteps-1)*tavg)
+        favg[tsteps-1] = average_frame(t+(x+tsteps-1)*tavg,t+(x+tsteps)*tavg)
   frame = clip.get_frame(t)
   for x in range(tsteps):
     frame = draw_blur(frame, box[x][0], box[x][1])
