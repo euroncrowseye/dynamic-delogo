@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Este é um script simples que permite você gerar uma imagem que é a  "media" 
+# Este é um script simples que permite você gerar uma imagem que é a  "média" 
 # dos frames de um vídeo (em valores RGB). Isto permite que você possa reduzir
 # efeitos de compressão e/ou ruído na hora de extrair o logo de um vídeo.
 # 
