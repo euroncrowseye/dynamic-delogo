@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# Este é um script simples que permite você gerar uma imagem que é a  "media" 
+# dos frames de um vídeo (em valores RGB). Isto permite que você possa reduzir
+# efeitos de compressão e/ou ruído na hora de extrair o logo de um vídeo.
+# 
+# Para melhores efeitos, selecione do vídeo uma só cena onde o logo permanece
+# no mesmo lugar e use este script nessa cena. 
+#
+# O resultado é uma imagem png. O formato foi escolhido pois suporta transparência,
+# o que torna o script "delogo" mais eficiente.
+#
 
 import cv2, argparse
 import numpy as np
