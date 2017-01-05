@@ -5,8 +5,11 @@
 # esse script pede um logo e um vídeo e recodifica esse vídeo embaçando
 # as regiões onde acha o logo.
 # Como o objetivo é não deixar falsos positivos, os parametros threshold
-# tavg e samplef são usados para achar o logo em uma media de frames.
-# altere caso haja problemas.
+# tavg, samplef e maxtsteps são usados para achar o logo em uma média de 
+# frames. altere caso haja problemas.
+#
+# Para melhores resultados, use um logo com fundo transparente. O script
+# average.py pode lhe ajudar a gerar o logo a partir do vídeo.
 #
 # Os parâmetros de codificação em mp4 no final não estão otimizados.
 #
@@ -14,7 +17,7 @@
 #   libx265, libfdk_aac
 #
 # para a versão 0.3: CSV editável com os timestamps e parametros de
-# codificação melhores.
+# codificação melhores. Inpaint ao invés de blur?
 #
 # Usem livrimente! @crowseye
 #
