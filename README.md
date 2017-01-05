@@ -16,7 +16,7 @@ Para melhores resultados, use um logo com fundo transparente. O script
 average.py pode lhe ajudar a gerar o logo a partir do vídeo.
 
 Se há absoluta necessidade de não haver falsos negativos (frames em que o
-script falhe em achar o logo), recomendo usar o modo lossless "-l" e depois
+script falhe em achar o logo), recomendo usar o modo lossless "-1" e depois
 editar o resultado separadamente.
 
 dependências incluem python, moviepy, numpy, ffmpeg, libx264
