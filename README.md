@@ -26,7 +26,7 @@ script falhe em achar o logo), recomendo usar o modo lossless "-1" e depois
 editar o resultado separadamente.
 
 
-dependências incluem python, moviepy, numpy, ffmpeg, libx264
+dependências incluem python, moviepy, opencv, numpy, ffmpeg, libx264
    libx265, libfdk_aac
 
 
