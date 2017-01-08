@@ -14,11 +14,12 @@ Uso é simples:
 $ python delogo-alpha-X.py -i video.mp4 -l logo.png 
 
 vai resultar no vídeo com a região do logo embaçada. Há mais parâmetros
-para otimizar a codificação final.
+para otimizar a codificação final, veja o arquivo .py para detalhes.
 
 
-Para melhores resultados, use um logo com fundo transparente. O script
-average.py pode lhe ajudar a gerar o logo a partir do vídeo.
+Para melhores resultados, use um logo com fundo transparente e com alto 
+contraste. O script average.py pode lhe ajudar a gerar o logo a partir de uma 
+cena do vídeo.
 
 
 Se há absoluta necessidade de não haver falsos negativos (frames em que o
@@ -30,12 +31,14 @@ dependências incluem python, moviepy, opencv, numpy, ffmpeg, libx264
    libx265, libfdk_aac
 
 
-para a versão 0.3: CSV editável com os timestamps e parametros de
-codificação melhores. Inpaint ao invés de blur?
+para a versão 0.4: CSV editável com os timestamps e parametros de
+codificação melhores.
 
 
-Usem livrimente! @crowseye
+Usem livremente! @crowseye
 
+
+diff 0.3: troquei o blur pelo inpaint + median
 
 diff 0.2: adicionei a procura temporal com maxtsteps, modo lossless
 
