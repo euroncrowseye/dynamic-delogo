@@ -71,7 +71,7 @@ csvname = basename[:-4] + "-delogo.csv"
 # global variables
 
 clip = VideoFileClip(basename)
-logo = cv2.imread(logomarca) # Arial 9 or 10. Condensed
+logo = cv2.imread(logomarca)
 fps = clip.fps
 h, w = logo.shape[:-1]
 border=1
