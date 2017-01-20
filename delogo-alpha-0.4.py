@@ -86,7 +86,7 @@ mask[pad//2:h+pad//2,pad//2:w+pad//2] = submask
 threshold = .29 # parece ser o limite para opencv ver algo
 tavg = 1        # deve acompanhar as mudanças de posição
 samplef = 4     # maior = mais rápido e match mais instável
-maxt = 10       # até quantos passos devemos dar
+maxt = 15       # até quantos passos devemos dar
 
 # initialize variables
 
