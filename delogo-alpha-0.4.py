@@ -136,7 +136,7 @@ def average_frame(tinit,tend):
   return avgmatrix
 
 def match(haystack,needle):
-  padded_frame = np.zeros(shape=(clip.h+h,clip.w+w,3),dtype=np.uint8)
+  padded_frame = np.full(shape=(clip.h+h,clip.w+w,3),fill_value=128,dtype=np.uint8)
   padded_frame[0:clip.h,0:clip.w] = haystack
   res = cv2.matchTemplate(padded_frame,needle, cv2.TM_CCOEFF_NORMED)
   rmin, rmax, loc_min, loc_max = cv2.minMaxLoc(res)
@@ -159,7 +159,7 @@ def generate_timecodes():
   return
 
 def draw_blur(frame, x, y):
-  padded_frame = np.zeros(shape=(clip.h+pad,clip.w+pad,3),dtype=np.uint8)
+  padded_frame = np.full(shape=(clip.h+pad,clip.w+pad,3),fill_value=128,dtype=np.uint8)
   padded_frame[pad//2:clip.h+pad//2,pad//2:clip.w+pad//2] = frame
   sub_frame = padded_frame[y:y+h+pad, x:x+w+pad]
   thismask = mask
